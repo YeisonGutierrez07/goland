@@ -16,10 +16,12 @@ func init() {
 
 }
 
+// GetPeopleEndPoint endpoint para retornar las personas
 func GetPeopleEndPoint(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(people)
 }
 
+// GetPersonEndPoint endpoint para traer una persona en especifico
 func GetPersonEndPoint(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	for _, person := range people {
@@ -32,6 +34,7 @@ func GetPersonEndPoint(w http.ResponseWriter, req *http.Request) {
 	return
 }
 
+// CreatePersonEndPoint enpoint para crear una persona
 func CreatePersonEndPoint(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	var person Person
@@ -43,6 +46,7 @@ func CreatePersonEndPoint(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(people)
 }
 
+// DeletePersonEndPoint endpoint para eliminar una persona
 func DeletePersonEndPoint(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 
