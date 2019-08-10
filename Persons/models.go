@@ -1,13 +1,16 @@
 package persons
 
+import "github.com/goland-project/models"
+
 type Person struct {
-	ID        string  `json:"id,omitempty"`
-	FirstName string  `json:"first_name,omitempty"`
-	LastName  string  `json:"last_name,omitempty"`
-	Address   Address `json:"address,omitempty"`
+	models.BaseModel
+	IDLocal   string  `json:"id_local" db:"id_local"`
+	FirstName string  `json:"first_name" db:"first_name"`
+	LastName  string  `json:"last_name" db:"last_name"`
+	Address   Address `json:"address"`
 }
 
 type Address struct {
-	City  string `json:"city,omitempty"`
-	State string `json:"state,omitempty"`
+	City  string `json:"city"`
+	State string `json:"state"`
 }
